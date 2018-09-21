@@ -1,0 +1,333 @@
+@mixin ql-theme {
+
+  box-sizing: border-box;
+
+  * {
+    box-sizing: border-box;
+  }
+
+  .i {
+    fill: currentColor;
+    width: 1.5rem; // 24px
+    height: 1.5rem; // 24px
+  }
+
+  &.ql-container, .ql-container {
+    font-size: 1rem;
+  }
+
+
+  &.ql-toolbar, .ql-toolbar {
+    padding: 4px;
+
+    .btn-group {
+      margin: 4px;
+    }
+
+    button, .btn {
+      display: flex;
+      align-content: center;
+      padding: 4px;
+    }
+
+    input.ql-image[type=file],
+    input.ql-image[type=file] {
+      display: none;
+    }
+  }
+
+  .ql-hidden {
+    display: none;
+  }
+
+  .ql-out-bottom,
+  .ql-out-top {
+    visibility: hidden;
+  }
+
+  .ql-tooltip {
+    position: absolute;
+    transform: translateY(10px);
+
+    a {
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    &.ql-flip {
+      transform: translateY(-10px);
+    }
+  }
+
+  .ql-direction {
+
+    svg:last-child {
+      display: none;
+    }
+
+    &.ql-active svg:last-child {
+      display: inline;
+    }
+
+    &.ql-active svg:first-child {
+      display: none;
+    }
+  }
+
+  .ql-editor {
+    overflow-y: visible;
+    
+    a {
+      text-decoration: underline;
+    }
+
+    blockquote {
+      border-left: 4px solid #ccc;
+      margin-bottom: 5px;
+      margin-top: 5px;
+      padding-left: 16px;
+    }
+
+    code,
+    pre {
+      background-color: #f0f0f0;
+      border-radius: 3px;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      margin-bottom: 5px;
+      margin-top: 5px;
+      padding: 5px 10px;
+    }
+
+    code {
+      font-size: 85%;
+      padding: 2px 4px;
+    }
+
+    pre.ql-syntax {
+      background-color: #23241f;
+      color: #f8f8f2;
+      overflow: visible;
+    }
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  &.ql-scroll-y, .ql-scroll-y {
+    &.ql-editor, .ql-editor {
+      overflow-y: auto;
+    }
+  }
+  
+  .dropdown-toggle {
+    .i {
+      flex: 0 0 auto;
+    }
+
+    &::after {
+      display: none;
+    }
+
+    &::before {
+      display: inline-block;
+      flex: 1;
+      margin: 0 4px;
+    }
+  }
+
+
+  .ql-color-picker,
+  .ql-icon-picker {
+    width: 32px;
+  }
+
+  .ql-icon-picker {
+    .dropdown-menu {
+      padding: 4px;
+      min-width: 32px;
+
+      &.show {
+        display: flex;
+      }
+    }
+
+    .dropdown-item {
+      height: 32px;
+      width: 32px;
+      padding: 4px;
+      margin: 0;
+    }
+  }
+
+  .ql-color-picker {
+    .dropdown-menu {
+      padding: 4px;
+      width: 206px;
+      flex-wrap: wrap;
+
+      &.show {
+        display: flex;
+      }
+    }
+
+    .dropdown-item {
+      flex: 1 1 24px;
+      height: 24px;
+      margin: 2px;
+      padding: 0;
+    }
+
+  }
+
+  .dropdown {
+    &.ql-header,
+    &.ql-font,
+    &.ql-size,
+    &.ql-header,
+    &.ql-font,
+    &.ql-size {
+      .dropdown-item[data-label]:not([data-label=''])::before {
+        content: attr(data-label);
+      }
+    }
+
+    &.ql-header {
+      min-width: 98px;
+
+      .dropdown-toggle::before,
+      .dropdown-item::before {
+        content: 'Normal';
+      }
+
+      .dropdown-toggle[data-value="1"]::before,
+      .dropdown-item[data-value="1"]::before {
+        content: 'Heading 1';
+      }
+
+      .dropdown-toggle[data-value="2"]::before,
+      .dropdown-item[data-value="2"]::before {
+        content: 'Heading 2';
+      }
+
+      .dropdown-toggle[data-value="3"]::before,
+      .dropdown-item[data-value="3"]::before {
+        content: 'Heading 3';
+      }
+
+      .dropdown-toggle[data-value="4"]::before,
+      .dropdown-item[data-value="4"]::before {
+        content: 'Heading 4';
+      }
+
+      .dropdown-toggle[data-value="5"]::before,
+      .dropdown-item[data-value="5"]::before {
+        content: 'Heading 5';
+      }
+
+      .dropdown-toggle[data-value="6"]::before,
+      .dropdown-item[data-value="6"]::before {
+        content: 'Heading 6';
+      }
+
+      .dropdown-item[data-value="1"]::before {
+        font-size: 2em;
+      }
+
+      .dropdown-item[data-value="2"]::before {
+        font-size: 1.5em;
+      }
+
+      .dropdown-item[data-value="3"]::before {
+        font-size: 1.17em;
+      }
+
+      .dropdown-item[data-value="4"]::before {
+        font-size: 1em;
+      }
+
+      .dropdown-item[data-value="5"]::before {
+        font-size: 0.83em;
+      }
+
+      .dropdown-item[data-value="6"]::before {
+        font-size: 0.67em;
+      }
+    }
+
+    &.ql-font {
+      min-width: 108px;
+
+      .dropdown-toggle::before,
+      .dropdown-item::before {
+        content: 'Sans Serif';
+      }
+      .dropdown-toggle[data-value=serif]::before,
+      .dropdown-item[data-value=serif]::before {
+        content: 'Serif';
+      }
+      .dropdown-toggle[data-value=monospace]::before,
+      .dropdown-item[data-value=monospace]::before {
+        content: 'Monospace';
+      }
+      .dropdown-item[data-value=serif]::before {
+        font-family: Georgia, Times New Roman, serif;
+      }
+      .dropdown-item[data-value=monospace]::before {
+        font-family: Monaco, Courier New, monospace;
+      }
+    }
+
+    &.ql-size {
+      min-width: 98px;
+
+      .dropdown-toggle::before,
+      .dropdown-item::before {
+        content: 'Normal';
+      }
+
+      .dropdown-toggle[data-value=small]::before,
+      .dropdown-item[data-value=small]::before {
+        content: 'Small';
+      }
+
+      .dropdown-toggle[data-value=large]::before,
+      .dropdown-item[data-value=large]::before {
+        content: 'Large';
+      }
+
+      .dropdown-toggle[data-value=huge]::before,
+      .dropdown-item[data-value=huge]::before {
+        content: 'Huge';
+      }
+
+      .dropdown-item[data-value=small]::before {
+        font-size: 10px;
+      }
+
+      .dropdown-item[data-value=large]::before {
+        font-size: 18px;
+      }
+
+      .dropdown-item[data-value=huge]::before {
+        font-size: 32px;
+      }
+    }
+
+  }
+
+  .ql-color-picker.ql-background .dropdown-item {
+    background-color: #fff;
+  }
+
+  .ql-color-picker.ql-color .dropdown-item {
+    background-color: #000;
+  }
+}
+
+.ql-theme {
+  @include ql-theme;
+}
