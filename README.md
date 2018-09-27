@@ -1,4 +1,4 @@
-# Bootrap Quill Editor
+# Bootstrap Quill Editor
 
 A rich text editor based on Quill with custom Theme, Modules and Parchments. See [Adding Quill to Your Build Pipeline](https://quilljs.com/guides/adding-quill-to-your-build-pipeline) for a detailed guide.
 
