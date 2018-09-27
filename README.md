@@ -8,11 +8,20 @@ Using [Yarn](https://yarnpkg.com/), [Webpack](https://webpack.js.org/) and [SCSS
 
 *Note: Built on Quill 2.0*
 
-## Plugins
+## Usage
+Install using yarn or npm and use it the same way as [Quill](https://github.com/quilljs/quill)
+
+```bash
+yarn add bootstrap-quill
+```
+
+See [demo](demo/index.html) for configuration example.
+
+## Modules and extensions
 The editor has extensions for @mentions, #hashtags and autolinks as well as integrated form support
 
-## Options
-See [demo](demo/index.html) for configuration example. 
+- [quill-form](https://github.com/weavy/quill-form)
+- [quill-autoformat](https://github.com/weavy/quill-autoformat)
 
 ## Build
 
@@ -20,7 +29,6 @@ See [demo](demo/index.html) for configuration example.
 yarn
 yarn build
 ```
-
 
 ### License
 
