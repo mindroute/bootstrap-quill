@@ -1,6 +1,6 @@
 {
   "name": "bootstrap-quill",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Quill editor for Bootstrap 4",
   "main": "dist/bootstrap-quill.js",
   "repository": {
