@@ -111,7 +111,7 @@ class BaseTheme extends Theme {
     this.quill.on(Emitter.events.EDITOR_CHANGE, update);
   }
 
-  buildSections(sections, icons) {
+  buildDropdowns(sections, icons) {
     sections.forEach((section) => {
       return new Dropdown(section);
     });

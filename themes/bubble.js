@@ -24,6 +24,7 @@ class BubbleTheme extends BaseTheme {
     this.tooltip.root.appendChild(toolbar.container);
     this.buildButtons([].slice.call(toolbar.container.querySelectorAll('button')), icons);
     this.buildPickers([].slice.call(toolbar.container.querySelectorAll('select')), icons);
+    this.buildDropdowns([].slice.call(toolbar.container.querySelectorAll('.ql-dropdown')), icons);
   }
 }
 BubbleTheme.DEFAULTS = extend(true, {}, BaseTheme.DEFAULTS, {

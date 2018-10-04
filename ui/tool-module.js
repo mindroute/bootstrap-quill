@@ -170,15 +170,15 @@ function addControls(container, groups) {
     groups = [groups];
   }
   groups.forEach(controls => {
-    const group = document.createElement('span');
+    let group = document.createElement('span');
     group.classList.add('ql-formats');
     group.classList.add('btn-group');
     controls.forEach(control => {
       if (typeof control === 'string') {
         addButton(group, control);
       } else {
-        const format = Object.keys(control)[0];
-        const value = control[format];
+        let format = Object.keys(control)[0];
+        let value = control[format];
         if (Array.isArray(value)) {
           if (value.some(Array.isArray)) {
             makeSection(group, format, value);
