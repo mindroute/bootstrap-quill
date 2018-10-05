@@ -10,10 +10,18 @@ let debug = logger('quill:toolmodule');
 class ToolModule extends Module {
   constructor(quill, options) {
     super(quill, options);
+    this.setContainer();
+    this.controls = [];
+    this.setHandlers();
+    
+    this.registerUpdateListeners();
+  }
+  
+  setContainer() {
     if (Array.isArray(this.options.container)) {
       const container = document.createElement('div');
       addControls(container, this.options.container);
-      quill.container.parentNode.insertBefore(container, quill.container);
+      this.quill.container.parentNode.insertBefore(container, this.quill.container);
       this.container = container;
     } else if (typeof this.options.container === 'string') {
       this.container = document.querySelector(this.options.container);
@@ -24,16 +32,9 @@ class ToolModule extends Module {
       return debug.error('Container required for toolbar', this.options);
     }
     this.container.classList.add('ql-toolbar');
-    this.controls = [];
-    this.handlers = {};
-    Object.keys(this.options.handlers).forEach(format => {
-      this.addHandler(format, this.options.handlers[format]);
-    });
-    Array.from(this.container.querySelectorAll('button, select')).forEach(
-      input => {
-        this.attach(input);
-      }
-    );
+  }
+  
+  registerUpdateListeners() {
     this.quill.on(Quill.events.EDITOR_CHANGE, (type, range) => {
       if (type === Quill.events.SELECTION_CHANGE) {
         this.update(range);
@@ -44,9 +45,24 @@ class ToolModule extends Module {
       this.update(range);
     });
   }
+  
+  setHandlers() {
+    this.handlers = {};
+    Object.keys(this.options.handlers).forEach(format => {
+      this.addHandler(format, this.options.handlers[format]);
+    });
+  }
 
   addHandler(format, handler) {
     this.handlers[format] = handler;
+  }
+  
+  attachInputs() {
+    Array.from(this.container.querySelectorAll('button, select')).forEach(
+      input => {
+        this.attach(input);
+      }
+    );
   }
 
   attach(input) {
